@@ -50,3 +50,12 @@ install:
 
 script:
     - $SBTPATH/sbt android:package
+
+deploy:
+  provider: releases
+  api_key:
+    secure: NnNe6I/yg2sgkiFCRB9wia0wKkA41YJbGQjoR+BUHKAVbJO4SKFg8XISdNdhFBq9pMI6Ev4dhH8rlN4ID8w3Imo8TMPvIaY+85uZNyg2iPPyDVYmwkYSeocoLoAqX947w0DGo3Qv4b//75C2Gji++AsoUip/iUa9mHD3JmuQ5g3cTcjySGQkBJR46Zl1sYb89yh/aPU4s5jplrfhaVvSabpC0W9F7FwV4jSbPVRN7PyNl19Ne1XpaJ4gS4g5qL/IFa4Y80NXYjIWiHKM9RnkZzmlykIj1EcJVdLNylrCglGDwkGoEOOJaLReFwuXq/WOGEY8sgRfBWh0DyFDssvNvrzR9VT/muS0shM22UAxJWyo4JdtLhQKQfe1Qk23MGGPRGetGpCbzKoW7QGmcKdKXakaJqEkauI8i3kfwf0RydsLYBgPd3aeHmIBXf8+SMPJ4Qitxc92PQRt5oBJrgL40pCigOXtPs0QI1oJNtOlK0a5HSURLcTixwibf4tkFH+sYYqT6ZzbAHBwaS8zOjN0koBDbRH0j+iKW60g3t03YpveKc26TLfK937BwiUQ8TvHSeO5iIgW7nGcWudRFOZhpwQ/mXsQI7D7RrrVvp1SZU7InQYOeouf4cvEs9I0cJDr2Fh5Sa13OUASYbJ8+SglS8GCB8FNENL/m1k4rEMAAcM=
+  file: target/android/output/shadowsocks-debug.apk
+  skip_cleanup: true
+  on:
+      all_branches: true
