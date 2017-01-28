@@ -21,7 +21,6 @@ libraryDependencies ++=
   "com.futuremind.recyclerfastscroll" % "fastscroll" % "0.2.5" ::
   "com.evernote" % "android-job" % "1.1.4" ::
   "com.github.jorgecastilloprz" % "fabprogresscircle" % "1.01" ::
-  "com.google.android.gms" % "play-services-ads" % playServicesVersion ::
   "com.google.android.gms" % "play-services-analytics" % playServicesVersion ::
   "com.google.android.gms" % "play-services-gcm" % playServicesVersion ::
   "com.j256.ormlite" % "ormlite-android" % "5.0" ::
