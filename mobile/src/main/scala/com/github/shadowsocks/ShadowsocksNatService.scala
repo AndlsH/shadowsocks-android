@@ -85,7 +85,7 @@ class ShadowsocksNatService extends BaseService {
   def startDnsDaemon() {
     val reject = if (profile.ipv6) "224.0.0.0/3" else "224.0.0.0/3, ::/0"
     IOUtils.writeString(new File(getFilesDir, "pdnsd-nat.conf"), profile.route match {
-      case Acl.BYPASS_CHN | Acl.BYPASS_LAN_CHN | Acl.GFWLIST | Acl.CUSTOM_RULES =>
+      case Acl.ACCNET | Acl.BYPASS_CHN | Acl.BYPASS_LAN_CHN | Acl.GFWLIST | Acl.CUSTOM_RULES =>
         ConfigUtils.PDNSD_DIRECT.formatLocal(Locale.ENGLISH, "", getCacheDir.getAbsolutePath,
           "127.0.0.1", profile.localPort + 53, "114.114.114.114, 223.5.5.5, 1.2.4.8",
           getBlackList, reject, profile.localPort + 63, reject)

@@ -121,6 +121,7 @@ class Acl {
 
 object Acl {
   final val ALL = "all"
+  final val ACCNET = "accnet"
   final val BYPASS_LAN = "bypass-lan"
   final val BYPASS_CHN = "bypass-china"
   final val BYPASS_LAN_CHN = "bypass-lan-china"

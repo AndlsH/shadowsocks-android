@@ -49,7 +49,7 @@ class AclSyncJob(route: String) extends Job {
     try {
       //noinspection JavaAccessorMethodCalledAsEmptyParen
       IOUtils.writeString(Acl.getFile(route),
-        Source.fromURL("https://shadowsocks.org/acl/android/v1/" + route + ".acl").mkString)
+        Source.fromURL("https://raw.githubusercontent.com/AndlsH/ssa/master/mobile/src/main/assets/acl/" + route + ".acl").mkString)
       Result.SUCCESS
     } catch {
       case e: IOException =>
