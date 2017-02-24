@@ -1,5 +1,7 @@
 # shadowsocks-android plugin framework
 
+[Documentation](doc.md) | [Change log](CHANGES.md)
+
 Support library for easier development on [shadowsocks
  plugin](https://github.com/shadowsocks/shadowsocks-org/issues/28) for Android. Also includes some
  useful resources to easily get consistent styling with the main app.
@@ -19,9 +21,6 @@ This library is designed with Java interoperability in mind so theoretically you
  library with other languages and/or build tools but there isn't documentation for that yet. This
  guide is written for Scala + SBT. Contributions are welcome.
 
-The following is just a simple guide to get you started, for more technical details, see
- [doc.md](https://github.com/shadowsocks/shadowsocks-android/blob/develop/plugin/doc.md).
-
 ### Package name
 
 There are no arbitrary restrictions/requirements on package name, component name and content
@@ -37,7 +36,7 @@ First you need to add this library to your dependencies. This library is written
  and it's most convenient to use it with SBT:
 
 ```scala
-libraryDependencies += "com.github.shadowsocks" %% "plugin" % "0.0.1"
+libraryDependencies += "com.github.shadowsocks" %% "plugin" % "0.0.2"
 ```
 
 ### Native binary configuration
@@ -88,7 +87,7 @@ Then add it to your manifest:
         ...
         <provider android:name=".BinaryProvider"
                   android:exported="true"
-                  android:authorities="com.github.shadowsocks.plugin.$PLUGIN_ID">
+                  android:authorities="$FULLY_QUALIFIED_NAME_OF_YOUR_CONTENTPROVIDER">
             <intent-filter>
                 <action android:name="com.github.shadowsocks.plugin.ACTION_NATIVE_PLUGIN"/>
             </intent-filter>

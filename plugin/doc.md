@@ -153,7 +153,7 @@ This corresponds to `com.github.shadowsocks.plugin.NativePluginProvider` in the 
         ...
         <provider android:name=".BinaryProvider"
                   android:exported="true"
-                  android:authorities="com.github.shadowsocks.plugin.$PLUGIN_ID">
+                  android:authorities="$FULLY_QUALIFIED_NAME_OF_YOUR_CONTENTPROVIDER">
             <intent-filter>
                 <action android:name="com.github.shadowsocks.plugin.ACTION_NATIVE_PLUGIN"/>
             </intent-filter>
@@ -196,7 +196,7 @@ This feature hasn't been implemented yet.
 Plugins are certified using package signatures and shadowsocks-android will consider these
  signatures as trusted:
 
-* Signatures by [trusted sources](https://github.com/shadowsocks/shadowsocks-android/blob/develop/mobile/src/main/scala/com/github/shadowsocks/plugin/PluginManager.scala#L22)
+* Signatures by [trusted sources](/mobile/src/main/scala/com/github/shadowsocks/plugin/PluginManager.scala#L22)
   which includes:
   - @madeye, i.e. the signer of the main repo;
   - The main repo doesn't contain any other trusted signatures. Third-party forks should add their
@@ -226,5 +226,5 @@ Plugin app must include this in their application tag: (which should be automati
 
 ```
 <meta-data android:name="com.github.shadowsocks.plugin.version"
-           android:value="0.0.1"/>
+           android:value="0.0.2"/>
 ```
