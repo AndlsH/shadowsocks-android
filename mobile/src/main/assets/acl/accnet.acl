@@ -13,7 +13,6 @@
 ^(.*\.)?qq\.com$
 ^(.*\.)?sinaimg\.com$
 ^(.*\.)?bdstatic\.com$
-^(.*\.)?v2ex\.com$
 ^(.*\.)?cnbeta\.com$
 ^(.*\.)?cnbetacdn\.com$
 ^(.*\.)?126\.net$
