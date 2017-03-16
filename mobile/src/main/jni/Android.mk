@@ -26,10 +26,12 @@ include $(CLEAR_VARS)
 
 SODIUM_SOURCE := \
 	crypto_aead/chacha20poly1305/sodium/aead_chacha20poly1305.c \
-	crypto_core/salsa20/ref/core_salsa20.c \
-	crypto_generichash/blake2/ref/blake2b-compress-ref.c \
-	crypto_generichash/blake2/ref/blake2b-ref.c \
-	crypto_generichash/blake2/ref/generichash_blake2b.c \
+	crypto_aead/xchacha20poly1305/sodium/aead_xchacha20poly1305.c \
+	crypto_core/hchacha20/core_hchacha20.c \
+	crypto_core/salsa/ref/core_salsa_ref.c \
+	crypto_generichash/blake2b/ref/blake2b-compress-ref.c \
+	crypto_generichash/blake2b/ref/blake2b-ref.c \
+	crypto_generichash/blake2b/ref/generichash_blake2b.c \
 	crypto_onetimeauth/poly1305/onetimeauth_poly1305.c \
 	crypto_onetimeauth/poly1305/donna/poly1305_donna.c \
 	crypto_pwhash/crypto_pwhash.c \
@@ -41,10 +43,10 @@ SODIUM_SOURCE := \
 	crypto_pwhash/argon2/pwhash_argon2i.c \
 	crypto_scalarmult/curve25519/scalarmult_curve25519.c \
 	crypto_stream/chacha20/stream_chacha20.c \
-	crypto_stream/chacha20/ref/stream_chacha20_ref.c \
-	crypto_stream/salsa20/ref/stream_salsa20_ref.c \
-	crypto_stream/salsa20/ref/xor_salsa20_ref.c \
-	crypto_verify/16/ref/verify_16.c \
+	crypto_stream/chacha20/ref/chacha20_ref.c \
+	crypto_stream/salsa20/stream_salsa20.c \
+	crypto_stream/salsa20/ref/salsa20_ref.c \
+	crypto_verify/sodium/verify.c \
 	randombytes/randombytes.c \
 	randombytes/sysrandom/randombytes_sysrandom.c \
 	sodium/core.c \
@@ -97,7 +99,7 @@ LIBEVENT_SOURCES := \
 
 LOCAL_MODULE := event
 LOCAL_SRC_FILES := $(addprefix libevent/, $(LIBEVENT_SOURCES))
-LOCAL_CFLAGS := -O2 -I$(LOCAL_PATH)/libevent \
+LOCAL_CFLAGS := -O2 -D_EVENT_HAVE_ARC4RANDOM -I$(LOCAL_PATH)/libevent \
 	-I$(LOCAL_PATH)/libevent/include \
 
 include $(BUILD_STATIC_LIBRARY)
@@ -236,23 +238,6 @@ LOCAL_CFLAGS := -O2 -std=gnu99 -DUSE_IPTABLES \
 	-I$(LOCAL_PATH)/redsocks \
 	-I$(LOCAL_PATH)/libevent/include \
 	-I$(LOCAL_PATH)/libevent
-
-include $(BUILD_SHARED_EXECUTABLE)
-
-########################################################
-## pdnsd
-########################################################
-
-include $(CLEAR_VARS)
-
-PDNSD_SOURCES  := $(wildcard $(LOCAL_PATH)/pdnsd/src/*.c)
-
-LOCAL_MODULE    := pdnsd
-LOCAL_SRC_FILES := $(PDNSD_SOURCES:$(LOCAL_PATH)/%=%)
-LOCAL_CFLAGS    := -DANDROID -Wall -O2 -I$(LOCAL_PATH)/pdnsd \
-				   -I$(LOCAL_PATH)/include/pdnsd -I$(LOCAL_PATH)/libancillary
-LOCAL_STATIC_LIBRARIES := libancillary
-LOCAL_LDLIBS := -llog
 
 include $(BUILD_SHARED_EXECUTABLE)
 
@@ -493,6 +478,17 @@ libpcre_src_files := \
 LOCAL_SRC_FILES := $(addprefix pcre/, $(libpcre_src_files))
 
 include $(BUILD_STATIC_LIBRARY)
+
+########################################################
+## overture
+########################################################
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := overture
+LOCAL_SRC_FILES := overture/$(TARGET_ARCH_ABI)/liboverture.so
+
+include $(PREBUILT_SHARED_LIBRARY)
 
 # Import cpufeatures
 $(call import-module,android/cpufeatures)
