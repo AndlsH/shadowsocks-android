@@ -5,7 +5,7 @@ android.useSupportVectors
 
 name := "shadowsocks"
 version := "4.2.5"
-versionCode := Some(195)
+versionCode := Some(1709)
 
 proguardOptions ++=
   "-dontwarn com.google.android.gms.internal.**" ::
@@ -29,7 +29,6 @@ libraryDependencies ++=
   "com.futuremind.recyclerfastscroll" % "fastscroll" % "0.2.5" ::
   "com.evernote" % "android-job" % "1.2.0-alpha4" ::
   "com.github.jorgecastilloprz" % "fabprogresscircle" % "1.01" ::
-  "com.google.android.gms" % "play-services-ads" % playServicesVersion ::
   "com.google.android.gms" % "play-services-analytics" % playServicesVersion ::
   "com.google.android.gms" % "play-services-gcm" % playServicesVersion ::
   "com.google.firebase" % "firebase-config" % playServicesVersion ::

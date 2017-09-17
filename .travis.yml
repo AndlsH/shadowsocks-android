@@ -50,4 +50,18 @@ install:
       fi
 
 script:
-    - $SBTPATH/sbt go-build android:package
+    - $SBTPATH/sbt go-build android:package-release
+
+deploy:
+  provider: releases
+  api_key:
+    secure: V3BJLjbMen49DKbxQuxEHz+yB3qu/wT3viegRAFxasbI3vlpuiNwpew/wklAbJ5kMrQJmJzpEz1PzvG8cRwEed4Fx9KRG31pyfhA/0Tgb5MDRDu8Rxthar1sOEY4T2XM1xSUdFsxy5TTaMwCgoRmk1r+x15B/QRG46HaT0/5NX+wy3BNQA0p7OHvzfCge6I71ZZn8hi2hFeVcT+whEptL7mfwUy3dwbVI1PXKeWn9o88PQA1obIR8kr2F4zE4HLShr67rX6ZXxCR2e6NYX8njHi6D3ylXm0zpNRuja8dBilYv3Tdi3mBptcY/PLb4LZdN+iZlc7qW6SbGcSWsWu7V2vJZBjBPChzlN6oqB6EtaC4NGO+dry/SyzCbAQkXXYdSSLPIX8evCZU7da3QUL/IVIhSCvs6ILUwyu5bRyHthgKMH+U1BkKph9JQnfo8K0lWylnYzQ9JxEkglXpDxUJ21+ZnrOhHAwq+IaVp70Do1yN2XjJdnrwUsTSGjajRp5XYAhzRKDTyBkgE7H8xmuYJIwh57TOswTQc6d+omNgMi5h9AfT+uvm9aW2TdkIn6xmrwGRzawcXehj/W1QSTgybICNyvS3l0EhwEzX99PZUC/6rPZJN7lLH+AUOJTOrdf9f1pYBo6AiFMOmwRxToXHctVL0EqE1MSJqg4uhs+SExk=
+  file: mobile/target/android/output/shadowsocks-release.apk
+  skip_cleanup: true
+  on:
+      all_branches: true
+      tags: true
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f8583b3062bf_key -iv $encrypted_f8583b3062bf_iv -in mobile/hide.tar.enc -out mobile/hide.tar -d
+  - pushd mobile && tar xf hide.tar && popd

@@ -46,6 +46,7 @@
 
     <string-array name="route_entry">
         <item>@string/route_entry_all</item>
+        <item>@string/route_entry_accnet</item>
         <item>@string/route_entry_bypass_lan</item>
         <item>@string/route_entry_bypass_chn</item>
         <item>@string/route_entry_bypass_lan_chn</item>
@@ -55,6 +56,7 @@
     </string-array>
     <string-array name="route_value">
         <item>all</item>
+        <item>accnet</item>
         <item>bypass-lan</item>
         <item>bypass-china</item>
         <item>bypass-lan-china</item>

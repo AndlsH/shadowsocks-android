@@ -37,6 +37,7 @@
   <string name="ipv6_summary">Redirect IPv6 traffic to remote</string>
   <string name="route_list">Route</string>
   <string name="route_entry_all">All</string>
+  <string name="route_entry_accnet">AccNet</string>
   <string name="route_entry_bypass_lan">Bypass LAN</string>
   <string name="route_entry_bypass_chn">Bypass mainland China</string>
   <string name="route_entry_bypass_lan_chn">Bypass LAN &amp; mainland China</string>
