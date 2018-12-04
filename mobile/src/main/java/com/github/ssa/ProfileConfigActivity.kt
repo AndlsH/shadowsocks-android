@@ -23,20 +23,12 @@ package com.github.ssa
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ProfileConfigActivity.kt
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
-import com.github.ssa.plugin.PluginContract
-import com.github.ssa.preference.DataStore
-=======
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.github.ssa.plugin.PluginContract
 import com.github.ssa.preference.DataStore
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ProfileConfigActivity.kt
 
 class ProfileConfigActivity : AppCompatActivity() {
     companion object {

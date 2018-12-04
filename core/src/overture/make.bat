@@ -23,10 +23,10 @@ SET ANDROID_ARM64_STRIP=%ANDROID_ARM64_TOOLCHAIN%\bin\aarch64-linux-android-stri
 SET ANDROID_X86_CC=%ANDROID_X86_TOOLCHAIN%\bin\i686-linux-android-clang
 SET ANDROID_X86_STRIP=%ANDROID_X86_TOOLCHAIN%\bin\i686-linux-android-strip
 
-MKDIR %DEPS%>nul 2>nul 
-MKDIR %TARGET%\armeabi-v7a>nul 2>nul 
-MKDIR %TARGET%\x86>nul 2>nul 
-MKDIR %TARGET%\arm64-v8a>nul 2>nul 
+MKDIR %DEPS%>nul 2>nul
+MKDIR %TARGET%\armeabi-v7a>nul 2>nul
+MKDIR %TARGET%\x86>nul 2>nul
+MKDIR %TARGET%\arm64-v8a>nul 2>nul
 
 SET CC=%ANDROID_ARM_TOOLCHAIN%\bin\arm-linux-androideabi-gcc.exe
 
@@ -79,10 +79,10 @@ IF EXIST "%TARGET%\armeabi-v7a\liboverture.so" (
 )
 
 IF %BUILD% == 1 (
-	PUSHD %GOPATH%\src\github.com\shadowsocks\overture\main
+	PUSHD %GOPATH%\src\github.com\ssa\overture\main
 
 	ECHO "Get dependences for overture"
-	go.exe get -v github.com/shadowsocks/overture/main
+	go.exe get -v github.com/ssa/overture/main
 
 	ECHO "Cross compile overture for arm"
 	IF NOT EXIST "%TARGET%\armeabi-v7a\liboverture.so" (
@@ -94,7 +94,7 @@ IF %BUILD% == 1 (
 	    SET GOARM=7
 	    go.exe build -ldflags="-s -w"
 	    %ANDROID_ARM_STRIP% main
-	    MOVE main %TARGET%\armeabi-v7a\liboverture.so>nul 2>nul 
+	    MOVE main %TARGET%\armeabi-v7a\liboverture.so>nul 2>nul
 	    ENDLOCAL
 	)
 
@@ -107,7 +107,7 @@ IF %BUILD% == 1 (
 	    SET GOARCH=arm64
 	    go.exe build -ldflags="-s -w"
 	    %ANDROID_ARM64_STRIP% main
-	    MOVE main %TARGET%\arm64-v8a\liboverture.so>nul 2>nul 
+	    MOVE main %TARGET%\arm64-v8a\liboverture.so>nul 2>nul
 	    ENDLOCAL
 	)
 
@@ -120,7 +120,7 @@ IF %BUILD% == 1 (
 	    SET GOARCH=386
 	    go.exe build -ldflags="-s -w"
 	    %ANDROID_X86_STRIP% main
-	    MOVE main %TARGET%\x86\liboverture.so>nul 2>nul 
+	    MOVE main %TARGET%\x86\liboverture.so>nul 2>nul
 	    ENDLOCAL
 	)
 

@@ -22,43 +22,10 @@ package com.github.ssa
 
 import android.app.Application
 import android.content.res.Configuration
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/App.kt
-import android.os.Build
-import android.os.Handler
-import android.os.Looper
-import android.os.UserManager
-import android.support.annotation.RequiresApi
-import android.support.v7.app.AppCompatDelegate
-import android.util.Log
-import android.widget.Toast
-import com.evernote.android.job.JobConstants
-import com.evernote.android.job.JobManager
-import com.evernote.android.job.JobManagerCreateException
-import com.github.ssa.acl.Acl
-import com.github.ssa.acl.AclSyncJob
-import com.github.ssa.bg.BaseService
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.preference.BottomSheetPreferenceDialogFragment
-import com.github.ssa.preference.DataStore
-import com.github.ssa.preference.IconListPreference
-import com.github.ssa.utils.*
-import com.google.android.gms.analytics.GoogleAnalytics
-import com.google.android.gms.analytics.HitBuilders
-import com.google.android.gms.analytics.StandardExceptionParser
-import com.google.android.gms.analytics.Tracker
-import com.google.firebase.FirebaseApp
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.j256.ormlite.logger.LocalLog
-import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompat
-import java.io.File
-import java.io.IOException
-=======
 import androidx.appcompat.app.AppCompatDelegate
 import com.github.ssa.preference.BottomSheetPreferenceDialogFragment
 import com.github.ssa.preference.IconListPreference
 import com.takisoft.preferencex.PreferenceFragmentCompat
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/App.kt
 
 class App : Application() {
     override fun onCreate() {

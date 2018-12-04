@@ -36,17 +36,6 @@ import android.os.Handler
 import android.view.*
 import android.widget.ImageView
 import android.widget.Switch
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/AppManager.kt
-import com.futuremind.recyclerviewfastscroll.FastScroller
-import com.futuremind.recyclerviewfastscroll.SectionTitleProvider
-import com.github.ssa.App.Companion.app
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.preference.DataStore
-import com.github.ssa.utils.DirectBoot
-import com.github.ssa.utils.Key
-import com.github.ssa.utils.resolveResourceId
-import com.github.ssa.utils.thread
-=======
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.getSystemService
@@ -60,7 +49,6 @@ import com.github.ssa.utils.DirectBoot
 import com.github.ssa.utils.Key
 import com.github.ssa.utils.thread
 import com.google.android.material.snackbar.Snackbar
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/AppManager.kt
 import java.util.concurrent.atomic.AtomicBoolean
 
 class AppManager : AppCompatActivity() {

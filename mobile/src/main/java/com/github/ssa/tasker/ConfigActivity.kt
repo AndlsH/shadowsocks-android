@@ -28,12 +28,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckedTextView
 import android.widget.Switch
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/ConfigActivity.kt
-import com.github.ssa.R
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.utils.resolveResourceId
-=======
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -43,7 +37,6 @@ import com.github.ssa.R
 import com.github.ssa.database.Profile
 import com.github.ssa.database.ProfileManager
 import com.github.ssa.utils.resolveResourceId
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/ConfigActivity.kt
 
 class ConfigActivity : AppCompatActivity() {
     inner class ProfileViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {

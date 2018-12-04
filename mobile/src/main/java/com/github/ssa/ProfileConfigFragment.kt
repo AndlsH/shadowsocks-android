@@ -27,24 +27,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.UserManager
 import android.view.MenuItem
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ProfileConfigFragment.kt
-import com.github.ssa.App.Companion.app
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.plugin.PluginConfiguration
-import com.github.ssa.plugin.PluginContract
-import com.github.ssa.plugin.PluginManager
-import com.github.ssa.plugin.PluginOptions
-import com.github.ssa.preference.DataStore
-import com.github.ssa.preference.IconListPreference
-import com.github.ssa.preference.OnPreferenceDataStoreChangeListener
-import com.github.ssa.preference.PluginConfigurationDialogFragment
-import com.github.ssa.utils.Action
-import com.github.ssa.utils.DirectBoot
-import com.github.ssa.utils.Key
-import com.takisoft.fix.support.v7.preference.EditTextPreference
-import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompatDividers
-=======
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
@@ -67,7 +49,6 @@ import com.github.ssa.utils.DirectBoot
 import com.github.ssa.utils.Key
 import com.takisoft.preferencex.EditTextPreference
 import com.takisoft.preferencex.PreferenceFragmentCompat
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ProfileConfigFragment.kt
 
 class ProfileConfigFragment : PreferenceFragmentCompat(),
         Preference.OnPreferenceChangeListener, OnPreferenceDataStoreChangeListener {

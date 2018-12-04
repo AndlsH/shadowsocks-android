@@ -22,18 +22,11 @@ package com.github.ssa.preference
 
 import android.view.View
 import android.widget.EditText
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/preference/PluginConfigurationDialogFragment.kt
-import com.github.ssa.ProfileConfigActivity
-import com.github.ssa.plugin.PluginContract
-import com.github.ssa.plugin.PluginManager
-import com.takisoft.fix.support.v7.preference.EditTextPreferenceDialogFragmentCompat
-=======
 import androidx.appcompat.app.AlertDialog
 import com.github.ssa.ProfileConfigActivity
 import com.github.ssa.plugin.PluginContract
 import com.github.ssa.plugin.PluginManager
 import com.takisoft.preferencex.EditTextPreferenceDialogFragmentCompat
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/preference/PluginConfigurationDialogFragment.kt
 
 class PluginConfigurationDialogFragment : EditTextPreferenceDialogFragmentCompat() {
     companion object {

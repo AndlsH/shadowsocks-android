@@ -23,13 +23,8 @@ package com.github.ssa.tasker
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/ActionListener.kt
-import com.github.ssa.App.Companion.app
-import com.github.ssa.database.ProfileManager
-=======
 import com.github.ssa.Core
 import com.github.ssa.database.ProfileManager
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/ActionListener.kt
 
 class ActionListener : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

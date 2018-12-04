@@ -23,16 +23,6 @@ package com.github.ssa.bg
 import android.app.KeyguardManager
 import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/bg/TileService.kt
-import android.support.annotation.RequiresApi
-import com.github.ssa.App.Companion.app
-import com.github.ssa.R
-import com.github.ssa.ShadowsocksConnection
-import com.github.ssa.aidl.IShadowsocksService
-import com.github.ssa.aidl.IShadowsocksServiceCallback
-import com.github.ssa.preference.DataStore
-import android.service.quicksettings.TileService as BaseTileService
-=======
 import android.service.quicksettings.TileService as BaseTileService
 import androidx.annotation.RequiresApi
 import androidx.core.content.getSystemService
@@ -42,7 +32,6 @@ import com.github.ssa.ShadowsocksConnection
 import com.github.ssa.aidl.IShadowsocksService
 import com.github.ssa.aidl.IShadowsocksServiceCallback
 import com.github.ssa.preference.DataStore
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/bg/TileService.kt
 
 @RequiresApi(24)
 class TileService : BaseTileService(), ShadowsocksConnection.Interface {

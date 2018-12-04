@@ -23,14 +23,9 @@ package com.github.ssa.tasker
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/Settings.kt
-import com.github.ssa.R
-import com.github.ssa.database.ProfileManager
-=======
 import androidx.core.os.bundleOf
 import com.github.ssa.R
 import com.github.ssa.database.ProfileManager
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/Settings.kt
 import com.twofortyfouram.locale.api.Intent as ApiIntent
 
 class Settings(bundle: Bundle?) {

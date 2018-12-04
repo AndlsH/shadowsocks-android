@@ -20,15 +20,9 @@
 
 package com.github.ssa.widget
 
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/widget/UndoSnackbarManager.kt
-import android.support.design.widget.Snackbar
-import android.view.View
-import com.github.ssa.R
-=======
 import com.github.ssa.MainActivity
 import com.github.ssa.R
 import com.google.android.material.snackbar.Snackbar
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/widget/UndoSnackbarManager.kt
 
 /**
  * @param activity MainActivity.

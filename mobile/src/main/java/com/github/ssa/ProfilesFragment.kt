@@ -32,16 +32,6 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ProfilesFragment.kt
-import com.github.ssa.App.Companion.app
-import com.github.ssa.bg.BaseService
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.plugin.PluginConfiguration
-import com.github.ssa.preference.DataStore
-import com.github.ssa.utils.Action
-import com.github.ssa.widget.UndoSnackbarManager
-=======
 import androidx.appcompat.widget.PopupMenu
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.TooltipCompat
@@ -62,7 +52,6 @@ import com.github.ssa.widget.UndoSnackbarManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ProfilesFragment.kt
 import net.glxn.qrgen.android.QRCode
 import org.json.JSONArray
 
@@ -73,13 +62,9 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener {
          */
         var instance: ProfilesFragment? = null
 
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ProfilesFragment.kt
-        private const val KEY_URL = "com.github.ssa.QRCodeDialog.KEY_URL"
-=======
         private const val KEY_URL = "com.github.ssa.QRCodeDialog.KEY_URL"
         private const val REQUEST_IMPORT_PROFILES = 1
         private const val REQUEST_EXPORT_PROFILES = 2
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ProfilesFragment.kt
     }
 
     /**
@@ -184,32 +169,6 @@ class ProfilesFragment : ToolbarFragment(), Toolbar.OnMenuItemClickListener {
                 itemView.isSelected = false
                 if (selectedItem === this) selectedItem = null
             }
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ProfilesFragment.kt
-=======
-
-            var adView = adView
-            if (item.host == "198.199.101.152") {
-                if (adView == null) {
-                    val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT)
-                    params.gravity = Gravity.CENTER_HORIZONTAL
-                    adView = AdView(context)
-                    adView.layoutParams = params
-                    adView.adUnitId = "ca-app-pub-9097031975646651/7760346322"
-                    adView.adSize = AdSize.FLUID
-                    val padding = context.resources.getDimensionPixelOffset(R.dimen.profile_padding)
-                    adView.setPadding(padding, 0, 0, padding)
-
-                    itemView.findViewById<LinearLayout>(R.id.content).addView(adView)
-
-                    // Load Ad
-                    val adBuilder = AdRequest.Builder()
-                    adBuilder.addTestDevice("B08FC1764A7B250E91EA9D0D5EBEB208")
-                    adView.loadAd(adBuilder.build())
-                    this.adView = adView
-                } else adView.visibility = View.VISIBLE
-            } else adView?.visibility = View.GONE
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ProfilesFragment.kt
         }
 
         override fun onClick(v: View?) {

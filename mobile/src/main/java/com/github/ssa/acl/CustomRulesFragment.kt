@@ -29,19 +29,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.*
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/acl/CustomRulesFragment.kt
-import com.futuremind.recyclerviewfastscroll.FastScroller
-import com.futuremind.recyclerviewfastscroll.SectionTitleProvider
-import com.github.ssa.App.Companion.app
-import com.github.ssa.MainActivity
-import com.github.ssa.R
-import com.github.ssa.ToolbarFragment
-import com.github.ssa.bg.BaseService
-import com.github.ssa.utils.Subnet
-import com.github.ssa.utils.asIterable
-import com.github.ssa.utils.resolveResourceId
-import com.github.ssa.widget.UndoSnackbarManager
-=======
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -61,7 +48,6 @@ import com.github.ssa.utils.printLog
 import com.github.ssa.utils.resolveResourceId
 import com.github.ssa.widget.UndoSnackbarManager
 import com.google.android.material.textfield.TextInputLayout
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/acl/CustomRulesFragment.kt
 import java.net.IDN
 import java.net.MalformedURLException
 import java.net.URL

@@ -24,10 +24,6 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/widget/ServiceButton.kt
-import com.github.ssa.R
-import com.github.ssa.bg.BaseService
-=======
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.TooltipCompat
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
@@ -35,7 +31,6 @@ import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.github.ssa.R
 import com.github.ssa.bg.BaseService
 import com.google.android.material.floatingactionbutton.FloatingActionButton
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/widget/ServiceButton.kt
 import java.util.*
 
 class ServiceButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :

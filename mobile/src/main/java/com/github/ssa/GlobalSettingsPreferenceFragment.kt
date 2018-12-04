@@ -22,18 +22,6 @@ package com.github.ssa
 
 import android.os.Build
 import android.os.Bundle
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/GlobalSettingsPreferenceFragment.kt
-import android.support.design.widget.Snackbar
-import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.Preference
-import com.github.ssa.App.Companion.app
-import com.github.ssa.bg.BaseService
-import com.github.ssa.preference.DataStore
-import com.github.ssa.utils.DirectBoot
-import com.github.ssa.utils.Key
-import com.github.ssa.utils.TcpFastOpen
-import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompatDividers
-=======
 import androidx.preference.Preference
 import androidx.preference.SwitchPreference
 import com.github.ssa.bg.BaseService
@@ -43,7 +31,6 @@ import com.github.ssa.utils.Key
 import com.github.ssa.utils.TcpFastOpen
 import com.github.ssa.utils.remove
 import com.takisoft.preferencex.PreferenceFragmentCompat
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/GlobalSettingsPreferenceFragment.kt
 
 class GlobalSettingsPreferenceFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferencesFix(savedInstanceState: Bundle?, rootKey: String?) {

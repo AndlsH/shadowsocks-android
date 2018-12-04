@@ -29,35 +29,6 @@ import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.util.Log
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/MainActivity.kt
-import android.view.View
-import android.widget.TextView
-import com.github.ssa.App.Companion.app
-import com.github.ssa.acl.Acl
-import com.github.ssa.acl.CustomRulesFragment
-import com.github.ssa.aidl.IShadowsocksService
-import com.github.ssa.aidl.IShadowsocksServiceCallback
-import com.github.ssa.bg.BaseService
-import com.github.ssa.bg.Executable
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.preference.DataStore
-import com.github.ssa.preference.OnPreferenceDataStoreChangeListener
-import com.github.ssa.utils.Key
-import com.github.ssa.utils.responseLength
-import com.github.ssa.utils.thread
-import com.github.ssa.widget.ServiceButton
-import com.mikepenz.materialdrawer.Drawer
-import com.mikepenz.materialdrawer.DrawerBuilder
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import java.io.IOException
-import java.net.HttpURLConnection
-import java.net.InetSocketAddress
-import java.net.Proxy
-import java.net.URL
-import java.util.*
-=======
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.MenuItem
@@ -87,7 +58,6 @@ import com.github.ssa.widget.StatsBar
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlin.math.roundToInt
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/MainActivity.kt
 
 class MainActivity : AppCompatActivity(), ShadowsocksConnection.Interface, OnPreferenceDataStoreChangeListener,
         NavigationView.OnNavigationItemSelectedListener {

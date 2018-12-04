@@ -32,12 +32,6 @@ import android.util.SparseArray
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/ScannerActivity.kt
-import com.github.ssa.App.Companion.app
-import com.github.ssa.database.Profile
-import com.github.ssa.database.ProfileManager
-import com.github.ssa.utils.resolveResourceId
-=======
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
 import androidx.core.util.forEach
@@ -48,7 +42,6 @@ import com.github.ssa.utils.datas
 import com.github.ssa.utils.openBitmap
 import com.github.ssa.utils.printLog
 import com.google.android.gms.common.GoogleApiAvailability
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/ScannerActivity.kt
 import com.google.android.gms.samples.vision.barcodereader.BarcodeCapture
 import com.google.android.gms.samples.vision.barcodereader.BarcodeGraphic
 import com.google.android.gms.vision.Frame

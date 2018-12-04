@@ -32,9 +32,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/preference/BottomSheetPreferenceDialogFragment.kt
-import com.github.ssa.R
-=======
 import androidx.core.view.isVisible
 import androidx.preference.PreferenceDialogFragmentCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -42,7 +39,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.ssa.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
->>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/preference/BottomSheetPreferenceDialogFragment.kt
 
 class BottomSheetPreferenceDialogFragment : PreferenceDialogFragmentCompat() {
     private inner class IconListViewHolder(val dialog: BottomSheetDialog, view: View) : RecyclerView.ViewHolder(view),
