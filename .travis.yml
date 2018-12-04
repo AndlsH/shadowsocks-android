@@ -5,7 +5,7 @@ jdk:
 
 env:
     global:
-        - GOROOT=/usr/local/go/bin
+        - GOROOT=/usr/local/go
         - GOROOT_BOOTSTRAP=$GOROOT
         - PATH=/usr/local/go/bin:$PATH
 
