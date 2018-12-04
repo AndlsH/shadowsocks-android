@@ -5,7 +5,9 @@ jdk:
 
 env:
     global:
+        - GOROOT=/usr/local/go/bin
         - GOROOT_BOOTSTRAP=$GOROOT
+        - PATH=/usr/local/go/bin:$PATH
 
 before_cache:
     - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -17,6 +19,9 @@ cache:
         - $HOME/.android/build-cache
 
 install:
+    - wget -O /tmp/go.tgz "https://golang.org/dl/go1.11.linux-amd64.tar.gz"
+    - sudo tar -C /usr/local -xzf /tmp/go.tgz
+    - rm /tmp/go.tgz
     - pushd $ANDROID_HOME
     - rm -rf tools
     - wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O tools.zip
