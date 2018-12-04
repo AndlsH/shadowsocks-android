@@ -23,20 +23,27 @@ package com.github.ssa.tasker
 import android.app.Activity
 import android.content.res.Resources
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckedTextView
 import android.widget.Switch
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/ConfigActivity.kt
 import com.github.ssa.R
 import com.github.ssa.database.Profile
 import com.github.ssa.database.ProfileManager
 import com.github.ssa.utils.resolveResourceId
+=======
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.github.ssa.R
+import com.github.ssa.database.Profile
+import com.github.ssa.database.ProfileManager
+import com.github.ssa.utils.resolveResourceId
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/ConfigActivity.kt
 
 class ConfigActivity : AppCompatActivity() {
     inner class ProfileViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -101,7 +108,7 @@ class ConfigActivity : AppCompatActivity() {
         switch = findViewById(R.id.serviceSwitch)
         switch.isChecked = taskerOption.switchOn
         val profilesList = findViewById<RecyclerView>(R.id.list)
-        val lm = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val lm = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         profilesList.layoutManager = lm
         profilesList.itemAnimator = DefaultItemAnimator()
         profilesList.adapter = profilesAdapter

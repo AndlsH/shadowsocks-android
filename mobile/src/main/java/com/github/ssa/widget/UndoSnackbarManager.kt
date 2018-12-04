@@ -20,17 +20,24 @@
 
 package com.github.ssa.widget
 
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/widget/UndoSnackbarManager.kt
 import android.support.design.widget.Snackbar
 import android.view.View
 import com.github.ssa.R
+=======
+import com.github.ssa.MainActivity
+import com.github.ssa.R
+import com.google.android.material.snackbar.Snackbar
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/widget/UndoSnackbarManager.kt
 
 /**
- * @param view The view to find a parent from.
+ * @param activity MainActivity.
+ * //@param view The view to find a parent from.
  * @param undo Callback for undoing removals.
  * @param commit Callback for committing removals.
  * @tparam T Item type.
  */
-class UndoSnackbarManager<in T>(private val view: View, private val undo: (List<Pair<Int, T>>) -> Unit,
+class UndoSnackbarManager<in T>(private val activity: MainActivity, private val undo: (List<Pair<Int, T>>) -> Unit,
                                 commit: ((List<Pair<Int, T>>) -> Unit)? = null) {
     private val recycleBin = ArrayList<Pair<Int, T>>()
     private val removedCallback = object : Snackbar.Callback() {
@@ -49,15 +56,14 @@ class UndoSnackbarManager<in T>(private val view: View, private val undo: (List<
     fun remove(items: Collection<Pair<Int, T>>) {
         recycleBin.addAll(items)
         val count = recycleBin.size
-        val snackbar = Snackbar
-                .make(view, view.resources.getQuantityString(R.plurals.removed, count, count), Snackbar.LENGTH_LONG)
-                .addCallback(removedCallback)
-                .setAction(R.string.undo, {
-                    undo(recycleBin.reversed())
-                    recycleBin.clear()
-                })
-        snackbar.show()
-        last = snackbar
+        last = activity.snackbar(activity.resources.getQuantityString(R.plurals.removed, count, count)).apply {
+            addCallback(removedCallback)
+            setAction(R.string.undo) {
+                undo(recycleBin.reversed())
+                recycleBin.clear()
+            }
+            show()
+        }
     }
     fun remove(vararg items: Pair<Int, T>) = remove(items.toList())
 

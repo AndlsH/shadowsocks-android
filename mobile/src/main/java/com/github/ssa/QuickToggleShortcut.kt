@@ -25,12 +25,21 @@ import android.content.Intent
 import android.content.pm.ShortcutManager
 import android.os.Build
 import android.os.Bundle
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/QuickToggleShortcut.kt
 import android.support.v4.content.pm.ShortcutInfoCompat
 import android.support.v4.content.pm.ShortcutManagerCompat
 import android.support.v4.graphics.drawable.IconCompat
 import com.github.ssa.App.Companion.app
 import com.github.ssa.aidl.IShadowsocksService
 import com.github.ssa.bg.BaseService
+=======
+import androidx.core.content.getSystemService
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.graphics.drawable.IconCompat
+import com.github.ssa.aidl.IShadowsocksService
+import com.github.ssa.bg.BaseService
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/QuickToggleShortcut.kt
 
 class QuickToggleShortcut : Activity(), ShadowsocksConnection.Interface {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,14 +54,14 @@ class QuickToggleShortcut : Activity(), ShadowsocksConnection.Interface {
             finish()
         } else {
             connection.connect()
-            if (Build.VERSION.SDK_INT >= 25) getSystemService(ShortcutManager::class.java).reportShortcutUsed("toggle")
+            if (Build.VERSION.SDK_INT >= 25) getSystemService<ShortcutManager>()!!.reportShortcutUsed("toggle")
         }
     }
 
     override fun onServiceConnected(service: IShadowsocksService) {
         when (service.state) {
-            BaseService.STOPPED -> app.startService()
-            BaseService.CONNECTED -> app.stopService()
+            BaseService.STOPPED -> Core.startService()
+            BaseService.CONNECTED -> Core.stopService()
         }
         finish()
     }

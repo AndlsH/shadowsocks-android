@@ -21,9 +21,9 @@
 package com.github.ssa.bg
 
 import android.app.KeyguardManager
-import android.content.Context
 import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/bg/TileService.kt
 import android.support.annotation.RequiresApi
 import com.github.ssa.App.Companion.app
 import com.github.ssa.R
@@ -32,13 +32,24 @@ import com.github.ssa.aidl.IShadowsocksService
 import com.github.ssa.aidl.IShadowsocksServiceCallback
 import com.github.ssa.preference.DataStore
 import android.service.quicksettings.TileService as BaseTileService
+=======
+import android.service.quicksettings.TileService as BaseTileService
+import androidx.annotation.RequiresApi
+import androidx.core.content.getSystemService
+import com.github.ssa.Core
+import com.github.ssa.R
+import com.github.ssa.ShadowsocksConnection
+import com.github.ssa.aidl.IShadowsocksService
+import com.github.ssa.aidl.IShadowsocksServiceCallback
+import com.github.ssa.preference.DataStore
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/bg/TileService.kt
 
 @RequiresApi(24)
 class TileService : BaseTileService(), ShadowsocksConnection.Interface {
     private val iconIdle by lazy { Icon.createWithResource(this, R.drawable.ic_service_idle) }
     private val iconBusy by lazy { Icon.createWithResource(this, R.drawable.ic_service_busy) }
     private val iconConnected by lazy { Icon.createWithResource(this, R.drawable.ic_service_active) }
-    private val keyguard by lazy { getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager }
+    private val keyguard by lazy { getSystemService<KeyguardManager>()!! }
 
     override val serviceCallback: IShadowsocksServiceCallback.Stub by lazy {
         @RequiresApi(24)
@@ -64,8 +75,8 @@ class TileService : BaseTileService(), ShadowsocksConnection.Interface {
                 tile.label = label ?: getString(R.string.app_name)
                 tile.updateTile()
             }
-            override fun trafficUpdated(profileId: Int, txRate: Long, rxRate: Long, txTotal: Long, rxTotal: Long) { }
-            override fun trafficPersisted(profileId: Int) { }
+            override fun trafficUpdated(profileId: Long, txRate: Long, rxRate: Long, txTotal: Long, rxTotal: Long) { }
+            override fun trafficPersisted(profileId: Long) { }
         }
     }
 
@@ -88,8 +99,8 @@ class TileService : BaseTileService(), ShadowsocksConnection.Interface {
     private fun toggle() {
         val service = connection.service ?: return
         when (service.state) {
-            BaseService.STOPPED -> app.startService()
-            BaseService.CONNECTED -> app.stopService()
+            BaseService.STOPPED -> Core.startService()
+            BaseService.CONNECTED -> Core.stopService()
         }
     }
 }

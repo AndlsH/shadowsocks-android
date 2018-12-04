@@ -24,7 +24,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/GlobalSettingsFragment.kt
 import com.github.ssa.utils.childFragManager
+=======
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/GlobalSettingsFragment.kt
 
 class GlobalSettingsFragment : ToolbarFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -34,13 +37,9 @@ class GlobalSettingsFragment : ToolbarFragment() {
         super.onViewCreated(view, savedInstanceState)
         toolbar.setTitle(R.string.settings)
 
+        if (savedInstanceState != null) return
         val fm = childFragmentManager
         fm.beginTransaction().replace(R.id.content, GlobalSettingsPreferenceFragment()).commit()
         fm.executePendingTransactions()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        childFragManager = null
     }
 }

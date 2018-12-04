@@ -60,15 +60,12 @@ IF "%ERRORLEVEL%" == 1 (
     EXIT 1
 )
 
-IF NOT EXIST %DIR%\go\bin\go.exe (
-    ECHO "Build the custom go"
-
-    PUSHD %DIR%\go\src
-    CALL make.bat
-    POPD
+WHERE go.exe
+IF NOT EXIST %GOROOT% (
+    ECHO "GOROOT not found"
+    EXIT 1
 )
 
-SET GOROOT=%DIR%\go
 SET GOPATH=%DIR%
 SET PATH=%GOROOT%\bin;%GOPATH%\bin;%PATH%
 
@@ -82,11 +79,10 @@ IF EXIST "%TARGET%\armeabi-v7a\liboverture.so" (
 )
 
 IF %BUILD% == 1 (
-	ECHO "Get dependences for overture"
-	go.exe get -u github.com\tools\godep
-
 	PUSHD %GOPATH%\src\github.com\shadowsocks\overture\main
-	godep.exe restore
+
+	ECHO "Get dependences for overture"
+	go.exe get -v github.com/shadowsocks/overture/main
 
 	ECHO "Cross compile overture for arm"
 	IF NOT EXIST "%TARGET%\armeabi-v7a\liboverture.so" (

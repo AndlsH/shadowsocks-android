@@ -23,20 +23,25 @@ package com.github.ssa.tasker
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/ActionListener.kt
 import com.github.ssa.App.Companion.app
 import com.github.ssa.database.ProfileManager
+=======
+import com.github.ssa.Core
+import com.github.ssa.database.ProfileManager
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/ActionListener.kt
 
 class ActionListener : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val settings = Settings.fromIntent(intent)
         var changed = false
         if (ProfileManager.getProfile(settings.profileId) != null) {
-            app.switchProfile(settings.profileId)
+            Core.switchProfile(settings.profileId)
             changed = true
         }
         if (settings.switchOn) {
-            app.startService()
-            if (changed) app.reloadService()
-        } else app.stopService()
+            Core.startService()
+            if (changed) Core.reloadService()
+        } else Core.stopService()
     }
 }

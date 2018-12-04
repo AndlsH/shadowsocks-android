@@ -23,8 +23,14 @@ package com.github.ssa.tasker
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+<<<<<<< HEAD:mobile/src/main/java/com/github/ssa/tasker/Settings.kt
 import com.github.ssa.R
 import com.github.ssa.database.ProfileManager
+=======
+import androidx.core.os.bundleOf
+import com.github.ssa.R
+import com.github.ssa.database.ProfileManager
+>>>>>>> upstream/master:mobile/src/main/java/com/github/shadowsocks/tasker/Settings.kt
 import com.twofortyfouram.locale.api.Intent as ApiIntent
 
 class Settings(bundle: Bundle?) {
@@ -36,16 +42,21 @@ class Settings(bundle: Bundle?) {
     }
 
     var switchOn: Boolean = bundle?.getBoolean(KEY_SWITCH_ON, true) ?: true
-    var profileId: Int = bundle?.getInt(KEY_PROFILE_ID, -1) ?: -1
+    var profileId: Long
+
+    init {
+        profileId = bundle?.getLong(KEY_PROFILE_ID, -1L) ?: -1L
+        if (profileId < 0) profileId = (bundle?.getInt(KEY_PROFILE_ID, -1) ?: -1).toLong()
+    }
 
     fun toIntent(context: Context): Intent {
-        val bundle = Bundle()
-        if (!switchOn) bundle.putBoolean(KEY_SWITCH_ON, false)
-        if (profileId >= 0) bundle.putInt(KEY_PROFILE_ID, profileId)
         val profile = ProfileManager.getProfile(profileId)
-        return Intent().putExtra(ApiIntent.EXTRA_BUNDLE, bundle).putExtra(ApiIntent.EXTRA_STRING_BLURB,
-                if (profile != null) context.getString(if (switchOn) R.string.start_service else R.string.stop_service,
-                        profile.formattedName)
-                else context.getString(if (switchOn) R.string.start_service_default else R.string.stop))
+        return Intent()
+                .putExtra(ApiIntent.EXTRA_BUNDLE, bundleOf(Pair(KEY_SWITCH_ON, switchOn),
+                        Pair(KEY_PROFILE_ID, profileId)))
+                .putExtra(ApiIntent.EXTRA_STRING_BLURB,
+                        if (profile != null) context.getString(
+                                if (switchOn) R.string.start_service else R.string.stop_service, profile.formattedName)
+                        else context.getString(if (switchOn) R.string.start_service_default else R.string.stop))
     }
 }
