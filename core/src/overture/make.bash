@@ -49,7 +49,7 @@ export GOPATH=$DIR
 if [ ! -f "$TARGET/armeabi-v7a/liboverture.so" ] || [ ! -f "$TARGET/arm64-v8a/liboverture.so" ] ||
    [ ! -f "$TARGET/x86/liboverture.so" ]; then
 
-    pushd $GOPATH/src/github.com/ssa/overture/main
+    pushd $GOPATH/src/github.com/shadowsocks/overture/main
 
     echo "Get dependences for overture"
     go get -v github.com/shadowsocks/overture/main
