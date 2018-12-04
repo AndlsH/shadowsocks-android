@@ -1,31 +1,51 @@
-sudo: required
+language: android
 
-addons:
-    artifacts: true
+jdk:
+  - oraclejdk8
 
-services:
-    - docker
+env:
+    global:
+        - GOROOT_BOOTSTRAP=$GOROOT
 
-before_install:
-    - docker pull shadowsocks/shadowsocks-android:circleci
-    - chmod -R a+wrx .
-    - openssl aes-256-cbc -K $encrypted_f8583b3062bf_key -iv $encrypted_f8583b3062bf_iv -in build/mobile/hide.tar.enc -out build/hide.tar -d
-    - tar xf build/hide.tar
+before_cache:
+    - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
+cache:
+    directories:
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
+
+install:
+    - pushd $ANDROID_HOME
+    - rm -rf tools
+    - wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O tools.zip
+    - unzip -q tools.zip
+    - popd
+    - touch $HOME/.android/repositories.cfg
+    - yes | sdkmanager
+        "build-tools;27.0.3"
+        ndk-bundle
+        "platforms;android-27"
+      >/dev/null
 
 script:
-    - docker run --rm -v ${PWD}:/build shadowsocks/shadowsocks-android:circleci bash -c "cd /build; ./gradlew assembleRelease -Pandroid.injected.signing.store.file=$STORE_PATH -Pandroid.injected.signing.store.password=$STORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD"
+    - ./gradlew assembleRelease -Pandroid.injected.signing.store.file=$STORE_FILE -Pandroid.injected.signing.store.password=$STORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
 
 before_deploy:
-    - sh build/release.sh $TRAVIS_TAG
+    - sh release.sh $TRAVIS_TAG
 
 deploy:
   provider: releases
   api_key:
     secure: V3BJLjbMen49DKbxQuxEHz+yB3qu/wT3viegRAFxasbI3vlpuiNwpew/wklAbJ5kMrQJmJzpEz1PzvG8cRwEed4Fx9KRG31pyfhA/0Tgb5MDRDu8Rxthar1sOEY4T2XM1xSUdFsxy5TTaMwCgoRmk1r+x15B/QRG46HaT0/5NX+wy3BNQA0p7OHvzfCge6I71ZZn8hi2hFeVcT+whEptL7mfwUy3dwbVI1PXKeWn9o88PQA1obIR8kr2F4zE4HLShr67rX6ZXxCR2e6NYX8njHi6D3ylXm0zpNRuja8dBilYv3Tdi3mBptcY/PLb4LZdN+iZlc7qW6SbGcSWsWu7V2vJZBjBPChzlN6oqB6EtaC4NGO+dry/SyzCbAQkXXYdSSLPIX8evCZU7da3QUL/IVIhSCvs6ILUwyu5bRyHthgKMH+U1BkKph9JQnfo8K0lWylnYzQ9JxEkglXpDxUJ21+ZnrOhHAwq+IaVp70Do1yN2XjJdnrwUsTSGjajRp5XYAhzRKDTyBkgE7H8xmuYJIwh57TOswTQc6d+omNgMi5h9AfT+uvm9aW2TdkIn6xmrwGRzawcXehj/W1QSTgybICNyvS3l0EhwEzX99PZUC/6rPZJN7lLH+AUOJTOrdf9f1pYBo6AiFMOmwRxToXHctVL0EqE1MSJqg4uhs+SExk=
   file_glob: true
-  file: build/apk/*.apk
+  file: apk/*.apk
   skip_cleanup: true
   on:
       all_branches: true
       tags: true
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f8583b3062bf_key -iv $encrypted_f8583b3062bf_iv -in mobile/hide.tar.enc -out hide.tar -d
+  - tar xf hide.tar
