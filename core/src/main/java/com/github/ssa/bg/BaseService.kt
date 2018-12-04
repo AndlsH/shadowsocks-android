@@ -69,7 +69,7 @@ object BaseService {
     const val STOPPING = 3
     const val STOPPED = 4
 
-    const val CONFIG_FILE = "shadowsocks.conf"
+    const val CONFIG_FILE = "ssa.conf"
 
     class Data internal constructor(private val service: Interface) {
         @Volatile var profile: Profile? = null
