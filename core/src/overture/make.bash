@@ -52,7 +52,7 @@ if [ ! -f "$TARGET/armeabi-v7a/liboverture.so" ] || [ ! -f "$TARGET/arm64-v8a/li
     pushd $GOPATH/src/github.com/ssa/overture/main
 
     echo "Get dependences for overture"
-    go get -v github.com/ssa/overture/main
+    go get -v github.com/shadowsocks/overture/main
 
     echo "Cross compile overture for arm"
     if [ ! -f "$TARGET/armeabi-v7a/liboverture.so" ]; then
